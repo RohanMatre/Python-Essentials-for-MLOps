@@ -1,7 +1,9 @@
 def str_to_bool(val):
     """
-    Convert a string to a boolean, like: yes, y, '', will be true
-    otherwise will be false.
+    Convert a string representation of truth to True or False
+    True values are 'y', 'yes', or ''; case-insensitive
+    False values are 'n', or 'no'; case-insensitive
+    Raises ValueError if 'val' is anything else.
     """
     true_vals = ['yes', 'y', '']
     false_vals = ['no', 'n']
@@ -13,10 +15,5 @@ def str_to_bool(val):
         return True
     elif val in false_vals:
         return False
-
-
-def str_to_int(string):
-    # first try to do a float
-    result = float(string)
-    # then convert to int and return
-    return int(result)
+    else:
+        raise ValueError("Invalid input value: %s" % val)
